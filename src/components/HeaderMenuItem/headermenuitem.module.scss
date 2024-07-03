@@ -1,0 +1,12 @@
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  img {
+    width: auto;
+    height: auto;
+    margin-right: 14px;
+  }
+}
