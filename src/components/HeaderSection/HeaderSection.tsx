@@ -12,9 +12,9 @@ const HeaderSection: FC = () => {
             <nav>
                 <ul className={styles.menuItemsList}>
                     <div className={styles.leftMenu}>
-                        <HeaderMenuItem icon={logo as string} key='playbill'></HeaderMenuItem>
-                        <HeaderMenuItem icon={userIcon as string} key='profile'>Профиль</HeaderMenuItem>
-                        <HeaderMenuItem icon={ticketsIcon as string} key='tickets'>Билеты</HeaderMenuItem>
+                        <HeaderMenuItem icon={logo as string} route='home'></HeaderMenuItem>
+                        <HeaderMenuItem icon={userIcon as string} route='profile'>Профиль</HeaderMenuItem>
+                        <HeaderMenuItem icon={ticketsIcon as string} route='tickets'>Билеты</HeaderMenuItem>
                     </div>
                     <HeaderMenuItem icon={exitIcon as string} key='exit'>Выйти</HeaderMenuItem>
                 </ul>

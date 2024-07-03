@@ -7,15 +7,15 @@ import {ROUTES} from "../../consts/routes.ts";
 
 interface HeaderMenuItemProps {
     icon: string;
-    key: string;
+    route: string;
     children?: ReactNode
 }
 
-const HeaderMenuItem: FC<HeaderMenuItemProps> = ({icon, key, children}) => {
+const HeaderMenuItem: FC<HeaderMenuItemProps> = ({icon, route, children}) => {
     const navigate = useNavigate();
     const handleMenuClick = () => {
-        const routeKey = key.toUpperCase();
-        if (key === 'exit') {
+        const routeKey = route.toUpperCase();
+        if (route === 'exit') {
             // TODO: Add logout function
         }
         navigate(ROUTES[routeKey]);
