@@ -3,7 +3,7 @@ import '../../../styles/text.scss'
 
 interface TextProps {
     children: ReactNode;
-    style: 'text-regular' | 'text-bold' | 'text-light';
+    style: 'text-regular' | 'text-bold' | 'text-light' | 'semi-bold';
     className?: string;
 }
 
