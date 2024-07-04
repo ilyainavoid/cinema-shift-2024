@@ -5,9 +5,10 @@ interface TitleProps {
     children: ReactNode;
     level: 1 | 2 | 3 | 4 | 5 | 6;
     style: 'title-regular' | 'title-bold' | 'title-light';
+    className?: string;
 }
 
-const Title: FC<TitleProps> = ({ children, level, style }) => {
+const Title: FC<TitleProps> = ({ children, level, style, className }) => {
     let Tag: ElementType;
 
     switch (level) {
@@ -33,7 +34,7 @@ const Title: FC<TitleProps> = ({ children, level, style }) => {
             Tag = 'h1';
     }
 
-    return <Tag className={`title ${style}`}>{children}</Tag>;
+    return <Tag className={`title ${style} ${className}`}>{children}</Tag>;
 };
 
 export default Title;
