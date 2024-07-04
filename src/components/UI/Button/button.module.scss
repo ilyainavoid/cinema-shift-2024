@@ -1,0 +1,19 @@
+.button {
+  padding: 16px 25px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 16px;
+}
+
+.buttonTransparent{
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ced2da;
+}
+
+.buttonPrimary {
+  background-color: #9534d2;
+  color: #ffffff;
+}
