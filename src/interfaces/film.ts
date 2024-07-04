@@ -9,6 +9,7 @@ export interface Film {
     releaseDate: string;
     actors: FilmPerson[];
     directors: FilmPerson[];
+    genres: string[];
     runtime: number;
     ageRating: 'G' | 'PG' | 'PG13' | 'R' | 'NC17';
     img: string;
