@@ -1,7 +1,8 @@
 import {createBrowserRouter} from "react-router-dom";
-import Playbill from "./pages/Playbill/Playbill.tsx";
+import PlaybillPage from "./pages/PlaybillPage/PlaybillPage.tsx";
 import {ROUTES} from "./consts/routes.ts";
 import Layout from "./components/Layout/Layout.tsx";
+import FilmPage from "./pages/FilmPage/FilmPage.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -10,7 +11,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: ROUTES.HOME,
-                element: <Playbill/>
+                element: <PlaybillPage/>
+            },
+            {
+                path: ROUTES.FILM,
+                element: <FilmPage/>
             }
         ]
     }

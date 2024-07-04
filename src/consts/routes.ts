@@ -1,5 +1,6 @@
 export const ROUTES = {
     HOME: '/',
     TICKETS: '/tickets',
-    PROFILE: '/profile'
+    PROFILE: '/profile',
+    FILM: '/film/:id'
 };

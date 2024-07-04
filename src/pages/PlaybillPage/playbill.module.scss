@@ -1,0 +1,34 @@
+.playbillContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playbillContent {
+  width: 67vw;
+  margin-top: 50px;
+}
+
+.postersContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.playbillHeading {
+  margin-bottom: 2vh;
+  margin-left: 1vw;
+  font-size: 24px;
+}
+
+@media (max-width: 1280px) {
+  .postersContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .postersContainer {
+    grid-template-columns: 1fr;
+  }
+}
