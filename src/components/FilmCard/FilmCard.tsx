@@ -7,8 +7,7 @@ import Title from "../UI/Title/Title.tsx";
 import Text from '../UI/Text/Text.tsx'
 import FractionalRating from "../UI/FractionalRating/FractionalRating.tsx";
 import Button from "../UI/Button/Button.tsx";
-import {Link, useNavigate} from "react-router-dom";
-import {ROUTES} from "../../consts/routes.ts";
+import {Link} from "react-router-dom";
 
 interface FilmCardProps {
     film: Film;
@@ -25,7 +24,7 @@ const FilmCard: FC<FilmCardProps> = ({ film }) => {
             </div>
             <div className={styles.descriptionContainer}>
                 <div>
-                    <Title level={2} style={"title-bold"}>{film.name}</Title>
+                    <Title as="h2" style={"title-bold"}>{film.name}</Title>
                     <Text style={"text-regular"} className='translucent'>{film.originalName}</Text>
                 </div>
                 <div>

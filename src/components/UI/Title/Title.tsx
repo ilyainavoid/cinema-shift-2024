@@ -1,40 +1,16 @@
-import {ElementType, FC, ReactNode} from "react";
-import '../../../styles/title.scss'
+import { FC, ReactNode } from "react";
+import './title.scss';
+import classNames from "classnames";
 
 interface TitleProps {
     children: ReactNode;
-    level: 1 | 2 | 3 | 4 | 5 | 6;
+    as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     style: 'title-regular' | 'title-bold' | 'title-light';
     className?: string;
 }
 
-const Title: FC<TitleProps> = ({ children, level, style, className }) => {
-    let Tag: ElementType;
-
-    switch (level) {
-        case 1:
-            Tag = 'h1';
-            break;
-        case 2:
-            Tag = 'h2';
-            break;
-        case 3:
-            Tag = 'h3';
-            break;
-        case 4:
-            Tag = 'h4';
-            break;
-        case 5:
-            Tag = 'h5';
-            break;
-        case 6:
-            Tag = 'h6';
-            break;
-        default:
-            Tag = 'h1';
-    }
-
-    return <Tag className={`title ${style} ${className}`}>{children}</Tag>;
+const Title: FC<TitleProps> = ({ children, as: Tag, style, className }) => {
+    return <Tag className={classNames("text", style, className)}>{children}</Tag>;
 };
 
 export default Title;
