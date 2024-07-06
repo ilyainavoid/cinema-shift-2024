@@ -1,4 +1,4 @@
-import {Film} from "../../../../interfaces/film.ts";
+import { Film } from '../../../../interfaces/film.ts';
 
 export interface TodayRequestResponse {
     success: boolean;

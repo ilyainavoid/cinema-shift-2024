@@ -1,4 +1,4 @@
-import {FC} from "react";
+import { FC } from 'react';
 import styles from './button.module.scss';
 interface ButtonProps {
     className?: string;
@@ -7,12 +7,15 @@ interface ButtonProps {
     onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({className, type, children, onClick}) => {
-    const classnames = `${styles.button} ${styles[`button${type}`]} ${className || ''}`.trim();
+const Button: FC<ButtonProps> = ({ className, type, children, onClick }) => {
+    const classnames =
+        `${styles.button} ${styles[`button${type}`]} ${className || ''}`.trim();
 
     return (
-        <button onClick={onClick} className={classnames}>{children}</button>
-    )
-}
+        <button onClick={onClick} className={classnames}>
+            {children}
+        </button>
+    );
+};
 
 export default Button;

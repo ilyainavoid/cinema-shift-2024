@@ -1,6 +1,6 @@
-import {FC, ReactNode} from "react";
-import './text.scss'
-import classNames from "classnames";
+import classNames from 'classnames';
+import { FC, ReactNode } from 'react';
+import './text.scss';
 
 interface TextProps {
     children: ReactNode;
@@ -9,11 +9,7 @@ interface TextProps {
 }
 
 const Text: FC<TextProps> = ({ children, style, className }) => {
-    return (
-        <p className={classNames("text", style, className)}>
-            {children}
-        </p>
-    );
-}
+    return <p className={classNames('text', style, className)}>{children}</p>;
+};
 
 export default Text;

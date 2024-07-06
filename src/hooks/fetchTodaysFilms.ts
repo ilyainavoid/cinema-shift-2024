@@ -1,7 +1,7 @@
-import {toast} from "react-toastify";
-import {Film} from "../interfaces/film.ts";
-import {getTodaysFilms} from "../utils/api/cinema/today/todayRequest.ts";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { Film } from '../interfaces/film.ts';
+import { getTodaysFilms } from '../utils/api/cinema/today/todayRequest.ts';
 
 const useFetchTodaysFilms = () => {
     const [filmList, setFilmList] = useState<Film[]>([]);

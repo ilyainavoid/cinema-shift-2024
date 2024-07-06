@@ -1,6 +1,6 @@
-import {FilmPerson} from "./filmPerson.ts";
-import {Country} from "./country.ts";
-import {UserRatings} from "./userRatings.ts";
+import { Country } from './country.ts';
+import { FilmPerson } from './filmPerson.ts';
+import { UserRatings } from './userRatings.ts';
 
 export interface Film {
     id: string;

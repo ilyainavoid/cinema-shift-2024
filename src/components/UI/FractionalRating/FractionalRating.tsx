@@ -1,7 +1,7 @@
-import {FC} from 'react';
-import Rating from 'react-rating';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FC } from 'react';
+import Rating from 'react-rating';
 import styles from './fractionalrating.module.scss';
 
 interface FractionalRatingProps {
@@ -17,8 +17,12 @@ const FractionalRating: FC<FractionalRatingProps> = ({ rating }) => {
             readonly
             start={0}
             stop={5}
-            emptySymbol={<FontAwesomeIcon icon={fasStar} className={styles.starEmpty}/>}
-            fullSymbol={<FontAwesomeIcon icon={fasStar} className={styles.starFull} />}
+            emptySymbol={
+                <FontAwesomeIcon icon={fasStar} className={styles.starEmpty} />
+            }
+            fullSymbol={
+                <FontAwesomeIcon icon={fasStar} className={styles.starFull} />
+            }
         />
     );
 };

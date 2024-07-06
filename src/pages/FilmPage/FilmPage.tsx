@@ -1,7 +1,7 @@
-import {FC} from "react";
+import { FC } from 'react';
 
 const FilmPage: FC = () => {
-    return (<></>);
-}
+    return <></>;
+};
 
 export default FilmPage;

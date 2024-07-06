@@ -1,12 +1,12 @@
-import {FC} from "react";
-import HeaderSection from "../HeaderSection/HeaderSection.tsx";
-import {Outlet} from "react-router-dom";
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
+import HeaderSection from '../HeaderSection/HeaderSection.tsx';
 
 const Layout: FC = () => {
     return (
         <>
-            <HeaderSection/>
-            <Outlet/>
+            <HeaderSection />
+            <Outlet />
         </>
     );
 };

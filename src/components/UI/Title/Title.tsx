@@ -1,6 +1,6 @@
-import { FC, ReactNode } from "react";
+import classNames from 'classnames';
+import { FC, ReactNode } from 'react';
 import './title.scss';
-import classNames from "classnames";
 
 interface TitleProps {
     children: ReactNode;
@@ -10,7 +10,9 @@ interface TitleProps {
 }
 
 const Title: FC<TitleProps> = ({ children, as: Tag, style, className }) => {
-    return <Tag className={classNames("text", style, className)}>{children}</Tag>;
+    return (
+        <Tag className={classNames('text', style, className)}>{children}</Tag>
+    );
 };
 
 export default Title;
