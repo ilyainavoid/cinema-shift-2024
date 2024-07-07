@@ -10,7 +10,14 @@
     "lintfix": "eslint . --ext ts --ext tsx --ext js --fix",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "stylelint": "stylelint \"**/*.css\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts, tsx}": [
+      "eslint",
+      "prettier --write --ignore-unknown"
+    ]
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
@@ -39,6 +46,8 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.7",
     "prettier-plugin-organize-imports": "^4.0.0",
     "sass": "^1.77.6",
     "typescript": "^5.2.2",
