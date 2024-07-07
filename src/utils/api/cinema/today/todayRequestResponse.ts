@@ -1,7 +1,7 @@
-import { Film } from '../../../../interfaces/film.ts';
+import type { Film } from '@/interfaces/film.ts';
 
 export interface TodayRequestResponse {
-    success: boolean;
-    reason?: string;
-    films: Film[];
+  success: boolean;
+  reason?: string;
+  films: Film[];
 }

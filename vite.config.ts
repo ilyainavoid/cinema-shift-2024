@@ -13,7 +13,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@ui': path.resolve(__dirname, './src/components/UI'),
-      '@api': path.resolve(__dirname, './src/utils/api')
+      '@restapi': path.resolve(__dirname, './src/utils/api')
     }
   },
   plugins: [react()]
