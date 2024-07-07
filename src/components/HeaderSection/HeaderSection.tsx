@@ -23,7 +23,7 @@ const HeaderSection: FC = () => {
               Билеты
             </HeaderMenuItem>
           </div>
-          <HeaderMenuItem icon={exitIcon} key='exit'>
+          <HeaderMenuItem icon={exitIcon} route='exit'>
             Выйти
           </HeaderMenuItem>
         </ul>
