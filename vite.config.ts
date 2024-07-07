@@ -1,21 +1,20 @@
 import react from '@vitejs/plugin-react';
-import path from 'path';
+import path from 'node:path';
+import url from 'node:url';
 import { defineConfig } from 'vite';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle
+const __filename = url.fileURLToPath(import.meta.url);
+// eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle
+const __dirname = path.dirname(__filename);
+
 export default defineConfig({
-    plugins: [react()],
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, './src/'),
-            components: path.resolve(__dirname, './src/components/'),
-            pages: path.resolve(__dirname, './src/pages'),
-            interfaces: path.resolve(__dirname, './src/interfaces'),
-            consts: path.resolve(__dirname, './src/consts'),
-            ui: path.resolve(__dirname, './src/components/ui'),
-            utils: path.resolve(__dirname, './src/utils'),
-            hooks: path.resolve(__dirname, './src/hooks'),
-            api: path.resolve(__dirname, './src/utils/api'),
-        },
-        extensions: ['.ts', '.tsx'],
-    },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@ui': path.resolve(__dirname, './src/components/UI'),
+      '@api': path.resolve(__dirname, './src/utils/api')
+    }
+  },
+  plugins: [react()]
 });
