@@ -4,7 +4,7 @@ import Text from '@ui/Text/Text.tsx';
 
 import { ROUTES } from '@/consts/routes.ts';
 
-import styles from './headermenuitem.module.scss';
+import styles from './Headermenuitem.module.scss';
 
 interface HeaderMenuItemProps {
   icon: string;

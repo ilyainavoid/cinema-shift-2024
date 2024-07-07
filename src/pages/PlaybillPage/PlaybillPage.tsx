@@ -4,7 +4,7 @@ import Title from '@ui/Title/Title.tsx';
 import FilmCard from '@/components/FilmCard/FilmCard.tsx';
 import useFetchTodaysFilms from '@/hooks/fetchTodaysFilms.ts';
 
-import styles from './playbill.module.scss';
+import styles from './Playbill.module.scss';
 
 const PlaybillPage: FC = () => {
   const filmsList = useFetchTodaysFilms();

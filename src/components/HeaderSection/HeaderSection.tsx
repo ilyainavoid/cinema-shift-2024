@@ -7,7 +7,7 @@ import userIcon from '@/assets/svg/user.svg';
 
 import HeaderMenuItem from '../HeaderMenuItem/HeaderMenuItem.tsx';
 
-import styles from './headersection.module.scss';
+import styles from './Headersection.module.scss';
 
 const HeaderSection: FC = () => {
   return (

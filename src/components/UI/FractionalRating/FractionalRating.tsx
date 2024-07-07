@@ -3,7 +3,7 @@ import Rating from 'react-rating';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import styles from './fractionalrating.module.scss';
+import styles from './Fractionalrating.module.scss';
 
 interface FractionalRatingProps {
   rating: number;

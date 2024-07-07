@@ -3,7 +3,7 @@ import Text from '@ui/Text/Text.tsx';
 
 import type { Country } from '@/interfaces/country.ts';
 
-import styles from './genreandcountry.module.scss';
+import styles from './Genreandcountry.module.scss';
 
 interface GenreAndCountryLabelProps {
   genres: string[];

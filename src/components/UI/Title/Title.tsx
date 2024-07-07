@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
-import './title.scss';
+import './Title.scss';
 
 interface TitleProps {
   children: ReactNode;

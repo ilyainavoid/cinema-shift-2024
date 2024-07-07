@@ -10,7 +10,7 @@ import type { Film } from '@/interfaces/film.ts';
 
 import FilmInfoLabel from '../GenreAndCountryLabel/FilmInfoLabel.tsx';
 
-import styles from './filmcard.module.scss';
+import styles from './Filmcard.module.scss';
 
 interface FilmCardProps {
   film: Film;
