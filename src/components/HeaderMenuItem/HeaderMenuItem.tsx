@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '@ui/Button/Button.tsx';
 import Text from '@ui/Text/Text.tsx';
 
 import { ROUTES } from '@/consts/routes.ts';
@@ -15,19 +16,22 @@ interface HeaderMenuItemProps {
 const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ icon, route, children }) => {
   const navigate = useNavigate();
   const handleMenuClick = () => {
-    const routeKey = route.toUpperCase();
+    console.log('here');
     if (route === 'exit') {
       // TODO: Add logout function
     }
+    const routeKey = route.toUpperCase() as keyof typeof ROUTES;
     navigate(ROUTES[routeKey]);
   };
 
   return (
-    <li onClick={handleMenuClick}>
-      <div className={styles.contentContainer}>
-        <img src={icon} alt='' />
-        <Text style='text-medium'>{children}</Text>
-      </div>
+    <li>
+      <Button appearance='MenuItem' onClick={handleMenuClick}>
+        <div className={styles.contentContainer}>
+          <img src={icon} alt='' />
+          <Text format='text-medium'>{children}</Text>
+        </div>
+      </Button>
     </li>
   );
 };

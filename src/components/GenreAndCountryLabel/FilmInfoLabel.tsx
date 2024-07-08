@@ -16,8 +16,8 @@ const FilmInfoLabel: FC<GenreAndCountryLabelProps> = ({ genres, country, release
   const releaseYear = releaseDate.slice(releaseDate.length - 4, releaseDate.length);
   return (
     <div className={styles.rectangle}>
-      <Text style='text-bold'>{genresInline}</Text>
-      <Text style='text-regular'>
+      <Text format='text-bold'>{genresInline}</Text>
+      <Text format='text-regular'>
         {country ? country.name : 'Мир'}, {releaseYear}
       </Text>
     </div>

@@ -12,7 +12,7 @@ const PlaybillPage: FC = () => {
   return (
     <section className={styles.playbillContainer}>
       <div className={styles.playbillContent}>
-        <Title as='h2' style='text-bold' className={styles.playbillHeading}>
+        <Title as='h2' format='text-bold' className={styles.playbillHeading}>
           Афиша
         </Title>
         <div className={styles.postersContainer}>

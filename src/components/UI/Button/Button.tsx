@@ -1,19 +1,18 @@
-import type { FC } from 'react';
+import type { ComponentProps, FC, ReactNode } from 'react';
 
 import styles from './Button.module.scss';
 
-interface ButtonProps {
-  className?: string;
-  type: 'Transparent' | 'Primary';
-  children: string;
-  onClick?: () => void;
+interface ButtonProps extends ComponentProps<'button'> {
+  appearance: 'Transparent' | 'Primary' | 'MenuItem';
+  children: ReactNode;
 }
 
-const Button: FC<ButtonProps> = ({ className, type, children, onClick }) => {
-  const classnames = `${styles.button} ${styles[`button${type}`]} ${className || ''}`.trim();
+const Button: FC<ButtonProps> = ({ className, appearance, children, onClick, type = 'button' }) => {
+  const classnames = `${styles.button} ${styles[`button${appearance}`]} ${className || ''}`.trim();
 
   return (
-    <button onClick={onClick} className={classnames}>
+    // eslint-disable-next-line react/button-has-type
+    <button type={type} onClick={onClick} className={classnames}>
       {children}
     </button>
   );

@@ -27,23 +27,23 @@ const FilmCard: FC<FilmCardProps> = ({ film }) => {
       </div>
       <div className={styles.descriptionContainer}>
         <div>
-          <Title as='h2' style='title-bold'>
+          <Title as='h2' format='title-bold'>
             {film.name}
           </Title>
-          <Text style='text-regular' className='translucent'>
+          <Text format='text-regular' className='translucent'>
             {film.originalName}
           </Text>
         </div>
         <div>
           <FractionalRating rating={Number(film.userRatings.kinopoisk)} />
-          <Text style='text-regular' className='translucent' fractions={5} step={2}>
+          <Text format='text-regular' className='translucent' fractions={5} step={2}>
             Kinopoisk - {film.userRatings.kinopoisk}
           </Text>
         </div>
         <div>
           <Link to={`film/${film.id}`}>
-            <Button type='Primary'>
-              <Text style='text-semi-bold' className={styles.buttonText}>
+            <Button appearance='Primary'>
+              <Text format='text-semi-bold' className={styles.buttonText}>
                 Подробнее
               </Text>
             </Button>

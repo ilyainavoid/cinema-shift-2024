@@ -1,16 +1,15 @@
-import type { FC, ReactNode } from 'react';
+import type { ComponentProps, FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import './Text.scss';
 
-interface TextProps {
+interface TextProps extends ComponentProps<'p'> {
   children: ReactNode;
-  style: 'text-regular' | 'text-bold' | 'text-light' | 'semi-bold';
-  className?: string;
+  format: 'text-regular' | 'text-bold' | 'text-light' | 'semi-bold' | 'text-medium';
 }
 
-const Text: FC<TextProps> = ({ children, style, className }) => {
-  return <p className={classNames('text', style, className)}>{children}</p>;
+const Text: FC<TextProps> = ({ children, format, className }) => {
+  return <p className={classNames('text', format, className)}>{children}</p>;
 };
 
 export default Text;
