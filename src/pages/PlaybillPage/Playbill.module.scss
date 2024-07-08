@@ -4,6 +4,14 @@
   justify-content: center;
 }
 
+.loadingContainerPlaybill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100vw;
+}
+
 .playbillContent {
   width: 67vw;
   margin-top: 50px;

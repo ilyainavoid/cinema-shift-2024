@@ -1,0 +1,33 @@
+.loadingContainer {
+  position: relative;
+  height: 5rem;
+  width: 5rem;
+}
+
+.loadingProgress {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top-color: var(--background-brand);
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,7 +1,9 @@
 import type { FC } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@ui/Button/Button.tsx';
 import FractionalRating from '@ui/FractionalRating/FractionalRating.tsx';
+import Skeleton from '@ui/Skeleton/Skeleton.tsx';
 import Text from '@ui/Text/Text.tsx';
 import Title from '@ui/Title/Title.tsx';
 
@@ -18,11 +20,20 @@ interface FilmCardProps {
 
 const FilmCard: FC<FilmCardProps> = ({ film }) => {
   const imagePath = `${BASE_URL}${film.img}`;
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <img src={imagePath} alt={film.name} />
+        {!imageLoaded && <Skeleton.Image />}
+        <img
+          style={{ display: imageLoaded ? 'block' : 'none' }}
+          src={imagePath}
+          alt={film.name}
+          onLoad={() => {
+            setImageLoaded(true);
+          }}
+        />
         <FilmInfoLabel genres={film.genres} releaseDate={film.releaseDate} country={film.country} />
       </div>
       <div className={styles.descriptionContainer}>
@@ -36,7 +47,7 @@ const FilmCard: FC<FilmCardProps> = ({ film }) => {
         </div>
         <div>
           <FractionalRating rating={Number(film.userRatings.kinopoisk)} />
-          <Text format='text-regular' className='translucent' fractions={5} step={2}>
+          <Text format='text-regular' className='translucent'>
             Kinopoisk - {film.userRatings.kinopoisk}
           </Text>
         </div>
