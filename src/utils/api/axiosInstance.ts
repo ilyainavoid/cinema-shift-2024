@@ -4,7 +4,7 @@ import { BASE_URL } from '@/consts/baseURL.ts';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  header: {
+  headers: {
     'Content-Type': 'application/json'
   }
 });

@@ -1,9 +1,9 @@
-import type { AxiosResponse } from 'axios';
-
 import axiosInstance from '@/utils/api/axiosInstance.ts';
 
-import type { TodayRequestResponse } from './todayRequestResponse.ts';
+import type { RequestConfig } from '@/@types/api';
 
-export const getTodaysFilms = async (): Promise<AxiosResponse<TodayRequestResponse>> => {
-  return axiosInstance.get('/cinema/today');
+type GetTodaysFilmsConfig = RequestConfig;
+
+export const getTodaysFilms = (config?: GetTodaysFilmsConfig) => {
+  axiosInstance.get('/cinema/today', config?.config);
 };
