@@ -14,3 +14,11 @@ interface BaseResponse {
 export interface TodayRequestResponse extends BaseResponse {
   films: Film[];
 }
+
+export interface CreateOtpRequestResponse extends BaseResponse {
+  retryDelay: number;
+}
+
+export interface CreateOtpRequestPayload {
+  phone: string;
+}
