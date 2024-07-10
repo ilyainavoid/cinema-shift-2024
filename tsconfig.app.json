@@ -27,6 +27,7 @@
       "@/*": ["./src/*"],
       "@restapi/*": ["./src/utils/api/*"],
       "@ui/*": ["./src/components/UI/*"],
+      "@redux/*": ["./src/utils/redux/*"]
     },
     "allowSyntheticDefaultImports": true
   },
