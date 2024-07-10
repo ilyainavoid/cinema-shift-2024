@@ -7,7 +7,7 @@ import type {
   RequestConfig
 } from '@/@types/api';
 
-type CreateOtpCodeConfig = RequestConfig<CreateOtpRequestPayload>;
+export type CreateOtpCodeConfig = RequestConfig<CreateOtpRequestPayload>;
 
 export const createOtpCode = ({
   params
