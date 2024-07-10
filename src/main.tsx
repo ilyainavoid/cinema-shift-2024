@@ -2,17 +2,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import Provider from '@/Provider.tsx';
-
 import App from './App.tsx';
 
 import '@/styles/global.css';
 import '@/styles/reset.css';
+import ProviderWrapper from "@/Provider.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Provider>
+    <ProviderWrapper>
       <App />
-    </Provider>
+    </ProviderWrapper>
   </React.StrictMode>
 );
