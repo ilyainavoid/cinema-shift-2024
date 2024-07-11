@@ -1,12 +1,13 @@
 import type { FC } from 'react';
-import { useTodaysFilmsQuery } from '@restapi/hooks/queries/useTodaysFilmsQuery.ts';
+import { useTodaysFilmsQuery } from '@api/hooks/queries/useTodaysFilmsQuery.ts';
+import LoadingIndicator from '@ui/LoadingIndicator/LoadingIndicator.tsx';
+import Title from '@ui/Title/Title.tsx';
 
-import FilmCard from '@/pages/PlaybillPage/FilmCard/FilmCard.tsx';
-import LoadingIndicator from '@/shared/components/UI/LoadingIndicator/LoadingIndicator.tsx';
-import Title from '@/shared/components/UI/Title/Title.tsx';
-import type { Film } from '@/shared/interfaces/film';
+import FilmCard from '@/pages/PlaybillPage/components/FilmCard/FilmCard.tsx';
 
 import styles from './Playbill.module.scss';
+
+import type { Film } from '@/@types/api';
 
 const PlaybillPage: FC = () => {
   const { isLoading, data } = useTodaysFilmsQuery();

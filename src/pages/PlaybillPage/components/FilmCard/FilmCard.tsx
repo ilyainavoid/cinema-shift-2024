@@ -1,14 +1,14 @@
 import type { FC } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import FilmInfoLabel from '@shared/components/GenreAndCountryLabel/FilmInfoLabel.tsx';
+import { BASE_URL } from '@shared/consts/baseURL.ts';
+import Button from '@ui/Button/Button.tsx';
+import FractionalRating from '@ui/FractionalRating/FractionalRating.tsx';
+import Skeleton from '@ui/Skeleton/Skeleton.tsx';
+import Text from '@ui/Text/Text.tsx';
+import Title from '@ui/Title/Title.tsx';
 
-import FilmInfoLabel from '@/shared/components/GenreAndCountryLabel/FilmInfoLabel.tsx';
-import Button from '@/shared/components/UI/Button/Button.tsx';
-import FractionalRating from '@/shared/components/UI/FractionalRating/FractionalRating.tsx';
-import Skeleton from '@/shared/components/UI/Skeleton/Skeleton.tsx';
-import Text from '@/shared/components/UI/Text/Text.tsx';
-import Title from '@/shared/components/UI/Title/Title.tsx';
-import { BASE_URL } from '@/shared/consts/baseURL.ts';
 import type { Film } from '@/shared/interfaces/film.ts';
 
 import styles from './Filmcard.module.scss';
