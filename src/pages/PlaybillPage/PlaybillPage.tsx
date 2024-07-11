@@ -1,10 +1,10 @@
 import type { FC } from 'react';
-import LoadingIndicator from '@ui/LoadingIndicator/LoadingIndicator.tsx';
-import Title from '@ui/Title/Title.tsx';
+import { useTodaysFilmsQuery } from '@restapi/hooks/queries/useTodaysFilmsQuery.ts';
 
-import FilmCard from '@/components/FilmCard/FilmCard.tsx';
-import { useTodaysFilmsQuery } from '@/hooks/queries/getTodaysFilmsQuery.ts';
-import type { Film } from '@/interfaces/film';
+import FilmCard from '@/pages/PlaybillPage/FilmCard/FilmCard.tsx';
+import LoadingIndicator from '@/shared/components/UI/LoadingIndicator/LoadingIndicator.tsx';
+import Title from '@/shared/components/UI/Title/Title.tsx';
+import type { Film } from '@/shared/interfaces/film';
 
 import styles from './Playbill.module.scss';
 

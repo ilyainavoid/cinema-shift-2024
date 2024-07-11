@@ -12,9 +12,12 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@ui': path.resolve(__dirname, './src/components/UI'),
-      '@restapi': path.resolve(__dirname, './src/utils/api'),
-      '@redux': path.resolve(__dirname, './src/utils/redux')
+      '@ui': path.resolve(__dirname, './src/shared/components/UI'),
+      '@api': path.resolve(__dirname, './src/shared/utils/api'),
+      '@redux': path.resolve(__dirname, './src/shared/utils/redux'),
+      '@shared': path.resolve(__dirname, './src/shared'),
+      '@consts': path.resolve(__dirname, './src/shared/consts'),
+      '@components': path.resolve(__dirname, './src/shared/components/')
     }
   },
   plugins: [react()]

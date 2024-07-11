@@ -1,6 +1,6 @@
 import Title from '@ui/Title/Title.tsx';
 
-import AuthorizationForm from '@/components/AuthorizationForm/AuthorizationForm.tsx';
+import AuthorizationForm from './components/AuthorizationForm/AuthorizationForm';
 
 import styles from './Authorization.module.scss';
 

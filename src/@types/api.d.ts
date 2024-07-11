@@ -1,5 +1,3 @@
-import type { Film } from '@/interfaces/film.ts';
-
 export type ApiRequestConfig = import('axios').AxiosRequestConfig;
 
 export type RequestConfig<Params = undefined> = Params extends undefined
@@ -11,14 +9,48 @@ interface BaseResponse {
   reason?: string;
 }
 
-export interface TodayRequestResponse extends BaseResponse {
+export interface FilmsResponse extends BaseResponse {
   films: Film[];
 }
 
-export interface CreateOtpRequestResponse extends BaseResponse {
+export interface OtpResponse extends BaseResponse {
   retryDelay: number;
 }
 
-export interface CreateOtpRequestPayload {
+export interface CreateOtpDto {
   phone: string;
+}
+
+export interface Country {
+  name: string;
+  code: string;
+  code2: string;
+  id: number;
+}
+
+export interface Film {
+  id: string;
+  name: string;
+  originalName: string;
+  description: string;
+  releaseDate: string;
+  actors: FilmPerson[];
+  directors: FilmPerson[];
+  genres: string[];
+  userRatings: UserRatings;
+  runtime: number;
+  ageRating: 'G' | 'PG' | 'PG13' | 'R' | 'NC17';
+  img: string;
+  country?: Country;
+}
+
+export interface FilmPerson {
+  id: string;
+  professions: 'ACTOR' | 'DIRECTOR';
+  fullName: string;
+}
+
+export interface UserRatings {
+  kinopoisk: string;
+  imbd: string;
 }

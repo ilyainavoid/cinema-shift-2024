@@ -25,9 +25,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@restapi/*": ["./src/utils/api/*"],
-      "@ui/*": ["./src/components/UI/*"],
-      "@redux/*": ["./src/utils/redux/*"]
+      "@api/*": ["./src/shared/utils/api/*"],
+      "@ui/*": ["./src/shared/components/UI/*"],
+      "@redux/*": ["./src/shared/utils/redux/*"],
+      "@shared/*": ["./src/shared/*"]
     },
     "allowSyntheticDefaultImports": true
   },
