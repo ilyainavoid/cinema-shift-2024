@@ -1,54 +1,127 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
-
-import Form from '@/shared/components/UI/Form/Form.tsx';
-import Text from '@/shared/components/UI/Text/Text.tsx';
-import { requestOtpFormFields, submitOtpFormFields } from '@/shared/consts/forms.ts';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useCreateOtpCodeMutation } from '@api/hooks/mutations/useCreateOtpCodeMutation.ts';
+import { useSignInMutation } from '@api/hooks/mutations/useSignInMutation.ts';
+import { setAuthorization, setUser } from '@redux/user/userSlice.ts';
+import { ROUTES } from '@shared/consts/routes.ts';
+import useTimer from '@shared/utils/hooks/useTimer.ts';
+import Button from '@ui/Button/Button.tsx';
+import Text from '@ui/Text/Text.tsx';
 
 import styles from './AuthorizationForm.module.scss';
 
+type Inputs = {
+  phoneNumber: string;
+  otpCode: number;
+};
+
+const INPUT_NUMBER = 'Введите номер телефона для входа в личный кабинет';
+const INPUT_OTP = 'Введите проверочный код для входа в личный кабинет';
+let resendTime = 120000;
+
 const AuthorizationForm = () => {
-  const [numberSubmitted, setNumberSubmitted] = useState<boolean>(false);
-  const [instruction, setInstruction] = useState<string>(
-    'Введите номер телефона для входа в личный кабинет'
-  );
-  // @ts-ignore
-  const [phoneNumber, setPhoneNumber] = useState<string>();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { time, resetTimer } = useTimer(resendTime);
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors }
+  } = useForm<Inputs>();
+  const [phoneSubmitted, setPhoneSubmitted] = useState(false);
+  const mutateCreateOtp = useCreateOtpCodeMutation();
+  const mutateSignIn = useSignInMutation();
 
-  const requestFormFields = requestOtpFormFields;
-  const submitFormFields = submitOtpFormFields;
-
-  useEffect(() => {
-    if (numberSubmitted) {
-      setInstruction('Введите проверочный код для входа в личный кабнет');
-    }
-  }, [numberSubmitted]);
-
-  const onRequest: SubmitHandler<any> = (data) => {
-    setNumberSubmitted(true);
-    setPhoneNumber(data.phoneNumber);
+  const onResend = () => {
+    mutateCreateOtp.mutate(
+      {
+        params: { phone: getValues('phoneNumber') }
+      },
+      {
+        onSuccess: (data) => {
+          resendTime = data.data.retryDelay;
+          resetTimer(resendTime);
+        }
+      }
+    );
   };
 
-  const onSubmit: SubmitHandler<any> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    if (!phoneSubmitted) {
+      mutateCreateOtp.mutate(
+        {
+          params: { phone: data.phoneNumber }
+        },
+        {
+          onSuccess: (data) => {
+            resendTime = data.data.retryDelay;
+            resetTimer(resendTime);
+          }
+        }
+      );
+      setPhoneSubmitted(true);
+    } else {
+      mutateSignIn.mutate(
+        { params: { phone: data.phoneNumber, code: data.otpCode } },
+        {
+          onSuccess: (data) => {
+            dispatch(setUser(data.data.user));
+            dispatch(setAuthorization(true));
+            navigate(ROUTES.HOME);
+            localStorage.setItem('token', JSON.stringify(data));
+          }
+        }
+      );
+    }
   };
 
   return (
-    <div className={styles.formContainer}>
-      <Text format='text-regular' className={styles.instruction}>
-        {instruction}
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Text className={styles.instruction} format='text-regular'>
+        {phoneSubmitted ? INPUT_OTP : INPUT_NUMBER}
       </Text>
-      {numberSubmitted ? (
-        <Form use='otp-submit' buttonText='Войти' fields={submitFormFields} onSubmit={onSubmit} />
-      ) : (
-        <Form
-          use='otp-request'
-          buttonText='Продолжить'
-          fields={requestFormFields}
-          onSubmit={onRequest}
+      <div className={styles.formItem}>
+        <input
+          placeholder='Телефон'
+          className={styles.defaultInput}
+          {...register('phoneNumber', { required: true })}
         />
+      </div>
+      {phoneSubmitted && (
+        <div className={styles.formItem}>
+          <input
+            placeholder='Проверочный код'
+            className={styles.defaultInput}
+            {...register('otpCode', { required: true })}
+          />
+          {errors.otpCode && <span>This field is required</span>}
+        </div>
       )}
-    </div>
+      <div className={styles.formItem}>
+        <Button className={styles.submitButton} type='submit' appearance='primary'>
+          Продолжить
+        </Button>
+      </div>
+      {phoneSubmitted && (
+        <div className={styles.formItem}>
+          {time === 0 ? (
+            <Button appearance='text' className={styles.resendButton} onClick={() => onResend()}>
+              <Text format='text-regular' className={styles.resend}>
+                Отправить еще раз
+              </Text>
+            </Button>
+          ) : (
+            <Text format='text-regular' className='translucent'>
+              Отправить код повторно через {time} сек
+            </Text>
+          )}
+        </div>
+      )}
+    </form>
   );
 };
 

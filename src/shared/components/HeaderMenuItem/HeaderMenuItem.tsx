@@ -1,5 +1,7 @@
 import type { FC, ReactNode } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { resetUser } from '@redux/user/userSlice.ts';
 import { ROUTES } from '@shared/consts/routes.ts';
 import Button from '@ui/Button/Button.tsx';
 import Text from '@ui/Text/Text.tsx';
@@ -14,10 +16,11 @@ interface HeaderMenuItemProps {
 
 const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ icon, route, children }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleMenuClick = () => {
-    console.log('here');
     if (route === 'exit') {
-      // TODO: Add logout function
+      dispatch(resetUser());
+      localStorage.removeItem('token');
     }
     const routeKey = route.toUpperCase() as keyof typeof ROUTES;
     navigate(ROUTES[routeKey]);
@@ -25,7 +28,7 @@ const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ icon, route, children }) => {
 
   return (
     <li>
-      <Button appearance='MenuItem' onClick={handleMenuClick}>
+      <Button appearance='text' onClick={handleMenuClick}>
         <div className={styles.contentContainer}>
           <img src={icon} alt='' />
           <Text format='text-medium'>{children}</Text>

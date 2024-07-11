@@ -54,3 +54,22 @@ export interface UserRatings {
   kinopoisk: string;
   imbd: string;
 }
+
+export interface SignInDto {
+  phone: string;
+  code: number;
+}
+
+export interface SignInResponse extends BaseResponse {
+  user: User;
+  token: string;
+}
+
+export interface User {
+  phone: string;
+  firstName: string;
+  middleName: string;
+  lastname: string;
+  email: string;
+  city: string;
+}

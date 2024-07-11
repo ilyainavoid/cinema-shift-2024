@@ -9,9 +9,9 @@ import Skeleton from '@ui/Skeleton/Skeleton.tsx';
 import Text from '@ui/Text/Text.tsx';
 import Title from '@ui/Title/Title.tsx';
 
-import type { Film } from '@/shared/interfaces/film.ts';
-
 import styles from './Filmcard.module.scss';
+
+import type { Film } from '@/@types/api';
 
 interface FilmCardProps {
   film: Film;
@@ -52,7 +52,7 @@ const FilmCard: FC<FilmCardProps> = ({ film }) => {
         </div>
         <div>
           <Link to={`film/${film.id}`}>
-            <Button appearance='Primary'>
+            <Button appearance='primary'>
               <Text format='text-semi-bold' className={styles.buttonText}>
                 Подробнее
               </Text>
