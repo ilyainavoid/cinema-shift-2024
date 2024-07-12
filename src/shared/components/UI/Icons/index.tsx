@@ -1,5 +1,5 @@
-export { default as Back } from './back';
-export { default as Exit } from './exit';
-export { default as ShiftcinemaLogo } from './shiftcinema-logo';
-export { default as Tickets } from './tickets';
-export { default as User } from './user';
+export { default as Back } from './BackIcon.tsx';
+export { default as Exit } from './ExitIcon.tsx';
+export { default as ShiftCinemaLogo } from './ShiftCinemaIcon.tsx';
+export { default as Tickets } from './TicketsIcon.tsx';
+export { default as User } from './UserIcon.tsx';

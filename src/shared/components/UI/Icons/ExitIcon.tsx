@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-const SvgExit = (props: SVGProps<SVGSVGElement>) => (
+const ExitIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns='http://www.w3.org/2000/svg' width={25} height={25} fill='none' {...props}>
     <path
       fill='#141C24'
@@ -8,4 +8,4 @@ const SvgExit = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default SvgExit;
+export default ExitIcon;
