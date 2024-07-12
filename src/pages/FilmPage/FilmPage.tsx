@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Bounce, toast } from 'react-toastify';
 import { useFilmInfoQuery } from '@api/hooks/queries/useFilmInfoQuery.ts';
 import { ROUTES } from '@shared/consts/routes.ts';
 import Button from '@ui/Button/Button.tsx';
@@ -14,22 +13,6 @@ import styles from './FilmPage.module.scss';
 const FilmPage: FC = () => {
   const params = useParams();
   const filmId = params.id;
-
-  if (filmId === undefined) {
-    toast.error('❌ Произошла ошибка при загрузке фильма', {
-      position: 'bottom-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'dark',
-      transition: Bounce
-    });
-    return;
-  }
-
   const { data } = useFilmInfoQuery(filmId);
 
   return (
@@ -46,7 +29,7 @@ const FilmPage: FC = () => {
           </Button>
         </Link>
         <section className={styles.filmInfo}>
-          <FilmInfo film={data?.data.film} />
+          {data?.data.film && <FilmInfo film={data?.data.film} />}
         </section>
       </div>
     </div>

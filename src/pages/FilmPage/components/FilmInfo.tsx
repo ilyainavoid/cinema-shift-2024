@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import { useState } from 'react';
-import { Bounce, toast } from 'react-toastify';
 import FilmInfoLabel from '@shared/components/GenreAndCountryLabel/FilmInfoLabel.tsx';
 import { BASE_URL } from '@shared/consts/baseURL.ts';
+import { getAgeRating } from '@shared/utils/helpers/getAgeRating.ts';
 import { useDescription } from '@shared/utils/hooks/useDescription.ts';
 import { useImage } from '@siberiacancode/reactuse';
 import Button from '@ui/Button/Button.tsx';
@@ -16,25 +16,10 @@ import styles from './FilmInfo.module.scss';
 import type { Film } from '@/@types/api';
 
 interface FilmInfoProps {
-  film?: Film;
+  film: Film;
 }
 
 const FilmInfo: FC<FilmInfoProps> = ({ film }) => {
-  if (!film) {
-    toast.error('❌ Произошла ошибка при загрузке фильма', {
-      position: 'bottom-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: 'dark',
-      transition: Bounce
-    });
-    return;
-  }
-
   const IMAGE_PATH = BASE_URL + film.img;
 
   const briefDescription = useDescription(film.description);
@@ -60,8 +45,8 @@ const FilmInfo: FC<FilmInfoProps> = ({ film }) => {
       </div>
       <div className={styles.descriptionContainer}>
         <div>
-          <Title as='h2' format='title-bold'>
-            {film.name}
+          <Title as='h1' format='title-bold' className={styles.heading}>
+            {film.name} ({getAgeRating(film.ageRating)})
           </Title>
           <Text format='text-regular' className='translucent'>
             {film.originalName}

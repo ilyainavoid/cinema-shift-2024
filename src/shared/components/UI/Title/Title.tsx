@@ -10,7 +10,7 @@ interface TitleProps extends ComponentProps<'h1'> {
 }
 
 const Title: FC<TitleProps> = ({ children, as: Tag, format, className }) => {
-  return <Tag className={classNames('text', format, className)}>{children}</Tag>;
+  return <Tag className={classNames('title', format, className)}>{children}</Tag>;
 };
 
 export default Title;
