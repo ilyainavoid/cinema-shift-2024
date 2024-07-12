@@ -10,6 +10,7 @@ interface BaseResponse {
 }
 
 export type FilmId = string;
+export type HallName = 'Red' | 'Green' | 'Blue';
 
 export interface FilmsResponse extends BaseResponse {
   films: Film[];
@@ -78,4 +79,49 @@ export interface User {
   lastname: string;
   email: string;
   city: string;
+}
+
+export interface Place {
+  price: number;
+  type: 'ECONOM' | 'BLOCKED' | 'COMFORT';
+}
+
+export interface Schedule {
+  date: string;
+  seances: ScheduleSeance[];
+}
+
+export interface ScheduleSeance {
+  time: string;
+  hall: FilmHall;
+  payedTickets: Ticket[];
+}
+
+export interface FilmHall {
+  name: HallName;
+  places: Place[][];
+}
+
+export interface HallTimeslots {
+  [key: string]: ScheduleSeance[];
+  red: ScheduleSeance[];
+  green: ScheduleSeance[];
+  blue: ScheduleSeance[];
+}
+
+export interface Ticket {
+  filmId: FilmId;
+  row: number;
+  column: number;
+  seance: FilmTicketSeance;
+  phone: string;
+}
+
+export interface FilmTicketSeance {
+  date: string;
+  time: string;
+}
+
+export interface ScheduleResponse extends BaseResponse {
+  schedules: Schedule[];
 }
