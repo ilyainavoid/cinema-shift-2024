@@ -1,5 +1,5 @@
-import type { CreateOtpCodeConfig } from '@api/requests/otp';
-import { createOtpCode } from '@api/requests/otp';
+import type { CreateOtpCodeConfig } from '@api/requests/otp/createOtpCode.ts';
+import { createOtpCode } from '@api/requests/otp/createOtpCode.ts';
 import { useMutation } from '@tanstack/react-query';
 
 export const useCreateOtpCodeMutation = () =>

@@ -1,4 +1,4 @@
-import { getTodaysFilms } from '@api/requests/cinema';
+import { getTodaysFilms } from '@api/requests/cinema/getTodayFilms.ts';
 import { useQuery } from '@tanstack/react-query';
 
 export const useTodaysFilmsQuery = () => {

@@ -9,8 +9,14 @@ interface BaseResponse {
   reason?: string;
 }
 
+export type FilmId = string;
+
 export interface FilmsResponse extends BaseResponse {
   films: Film[];
+}
+
+export interface FilmResponse extends BaseResponse {
+  film: Film;
 }
 
 export interface OtpResponse extends BaseResponse {
@@ -29,7 +35,7 @@ export interface Country {
 }
 
 export interface Film {
-  id: string;
+  id: FilmId;
   name: string;
   originalName: string;
   description: string;
