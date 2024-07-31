@@ -22,6 +22,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@api/*": ["./src/shared/utils/api/*"],
+      "@ui/*": ["./src/shared/components/UI/*"],
+      "@redux/*": ["./src/shared/utils/redux/*"],
+      "@shared/*": ["./src/shared/*"]
+    },
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"]

@@ -1,0 +1,182 @@
+.container {
+  margin-top: 40px;
+}
+
+.heading {
+  font-size: 24px;
+}
+
+.dayTabs {
+  margin-top: 20px;
+  display: flex;
+  width: fit-content;
+  padding: 3px;
+  border-radius: 20px;
+  background: #F3F4F6;
+}
+
+.tab {
+  width: fit-content;
+  padding: 10px 15px;
+  border: none;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.tab:first-child {
+  margin-left: 0;
+}
+
+.passiveTab {
+  @extend .tab;
+  background: #F3F4F6;
+}
+
+.activeTab {
+  @extend .tab;
+}
+
+.separator {
+  color: var(--border);
+  margin-left: 5px;
+  align-self: center;
+  height: 100%;
+}
+
+.hallTimePicker {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.hallOptions {
+  display: flex;
+  margin-top: 10px;
+}
+
+.hallOptionButton {
+  width: fit-content;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.hallOptionButtonPicked {
+  @extend .hallOptionButton;
+  background-color: #97A1AF;
+}
+
+.hallNameLabel {
+  margin-top: 15px;
+  color: var(--text-secondary);
+}
+
+.ticketsPicker {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.ticketsPickerContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.screenContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 15px;
+
+  p {
+    width: fit-content;
+    margin-bottom: 5px;
+  }
+}
+
+.screen {
+  width: 409px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--border);
+}
+
+.line {
+  margin-bottom: 15px;
+}
+
+.pickerRow {
+  display: flex;
+  width: 100%;
+}
+
+.place {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.selectedPlace {
+  @extend .place;
+  width: 35px;
+  height: 35px;
+}
+
+.blockedPlace {
+  background-color: #CED2DA;
+}
+
+.rowLabel {
+  width: 20px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  width: 100%;
+  padding: 25px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  button {
+    width: 300px;
+  }
+
+  div {
+    margin-bottom: 20px;
+  }
+}
+
+.checkoutLabel {
+  font-size: 12px;
+  color: #637083;
+
+  p {
+    width: 100%;
+  }
+}
+
+.sum {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.placePriceHidden {
+  display: none;
+}

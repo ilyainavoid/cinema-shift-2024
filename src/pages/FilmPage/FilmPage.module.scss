@@ -1,0 +1,29 @@
+.buttonBack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.buttonBackText {
+  color: #637083;
+}
+
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageContent {
+  width: 67vw;
+  margin-top: 50px;
+}
+
+.section {
+  margin-top: 20px;
+}

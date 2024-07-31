@@ -1,0 +1,25 @@
+$font-family: 'Inter', sans-serif;
+
+.title {
+  font-family: $font-family;
+
+  &-light {
+    font-weight: 300;
+  }
+
+  &-regular {
+    font-weight: 400;
+  }
+
+  &-medium {
+    font-weight: 500;
+  }
+
+  &-semi-bold {
+    font-weight: 600;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+}

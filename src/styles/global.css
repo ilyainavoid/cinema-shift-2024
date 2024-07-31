@@ -1,0 +1,30 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-synthesis: none;
+    text-rendering: optimizelegibility;
+
+    --background-brand: #9534d2;
+    --briefinfo-label-text: #141c24;
+    --briefinfo-label-background: #f5f5f8;
+    --header-text: #344051;
+    --selected-time-option: #97a1af;
+    --border: #ced2da;
+    --sit-in-scheme: #712d9c;
+    --purchase-status-background: #ecf9f2;
+    --purchase-status-text: #4ecf53;
+    --text-secondary: #344051;
+}
+
+.translucent {
+    opacity: 0.5;
+}
+
+body {
+    min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
